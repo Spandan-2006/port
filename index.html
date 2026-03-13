@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — High-Performance Web Engineering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Scan-line overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Speed blur overlay (activated on fast scroll) -->
+    <div class="speed-blur" id="speed-blur"></div>
+
+    <div class="ui-layer">
+
+        <!-- NAVIGATION -->
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <span class="logo-mark">⬡</span>
+                <span class="logo-text">DEV<em>.PORTFOLIO</em></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#blog">Writing</a></li>
+                <li><a href="#contact" class="btn-outline">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+
+        <!-- MOBILE NAV -->
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#blog">Writing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- HERO -->
+        <section class="section hero-section">
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span class="dot-pulse"></span>
+                    <span>Live 3D · WebGL Render</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="line">High</span>
+                    <span class="line accent-line">Performance</span>
+                    <span class="line">Web Engineering</span>
+                </h1>
+                <p class="hero-sub">Physics simulations. Generative 3D. Interactive systems built for speed.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">
+                        <span>Case Studies</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <button id="camera-toggle" class="btn-ghost">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M11.54 4.46l-1.41 1.41M4.95 11.54l-1.41 1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <span>Camera View</span>
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-num">60</span><span class="stat-label">FPS Target</span></div>
+                    <div class="stat-divider"></div>
+                    <div class="stat"><span class="stat-num">3D</span><span class="stat-label">WebGL Native</span></div>
+                    <div class="stat-divider"></div>
+                    <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Built</span></div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section skills-section">
+            <div class="section-inner right">
+                <div class="section-header">
+                    <span class="section-tag">01 / Arsenal</span>
+                    <h2>Technical <span class="accent">Stack</span></h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">{ }</div>
+                        <h3>Languages</h3>
+                        <p>JavaScript ES6+, TypeScript, HTML5, CSS3/SASS, Python, GLSL shader programming.</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--pct: 95%"></div></div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">◈</div>
+                        <h3>Frontend &amp; 3D</h3>
+                        <p>React.js, Next.js, Three.js, WebGL, GSAP animation, Tailwind CSS.</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--pct: 92%"></div></div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">⬡</div>
+                        <h3>Backend &amp; Tooling</h3>
+                        <p>Node.js, Express, Firebase, Git, Webpack, Vite build systems.</p>
+                        <div class="skill-bar"><div class="skill-fill" style="--pct: 85%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section projects-section">
+            <div class="section-inner">
+                <div class="section-header">
+                    <span class="section-tag">02 / Work</span>
+                    <h2>Featured <span class="accent">Projects</span></h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card large-card">
+                        <div class="project-num">001</div>
+                        <div class="project-tag">Three.js · Physics</div>
+                        <h3>Porsche Physics Simulator</h3>
+                        <p>Real-time vehicle dynamics with custom PBR shaders and suspension mathematics. Built for 60fps across all devices.</p>
+                        <a href="#" class="project-link">
+                            <span>View Source</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-num">002</div>
+                        <div class="project-tag">WebXR · AR</div>
+                        <h3>E-Commerce WebXR</h3>
+                        <p>Augmented reality product viewer — place items in your space using native camera.</p>
+                        <a href="#" class="project-link">
+                            <span>View Source</span>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG -->
+        <section id="blog" class="section blog-section">
+            <div class="section-inner right">
+                <div class="section-header">
+                    <span class="section-tag">03 / Writing</span>
+                    <h2>Latest <span class="accent">Articles</span></h2>
+                </div>
+                <div class="blog-list">
+                    <a href="#" class="blog-item">
+                        <span class="blog-date">Oct 12, 2023</span>
+                        <div class="blog-body">
+                            <h3>Optimizing GLTF Models for the Web</h3>
+                            <p>Compress textures and reduce draw calls for 60fps performance.</p>
+                        </div>
+                        <svg class="blog-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#" class="blog-item">
+                        <span class="blog-date">Sep 28, 2023</span>
+                        <div class="blog-body">
+                            <h3>Understanding Quaternions in 3D Math</h3>
+                            <p>A visual guide to avoiding Gimbal lock in camera systems.</p>
+                        </div>
+                        <svg class="blog-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#" class="blog-item">
+                        <span class="blog-date">Aug 14, 2023</span>
+                        <div class="blog-body">
+                            <h3>GLSL Shaders: From Zero to PBR</h3>
+                            <p>Building physically-based rendering pipelines from scratch.</p>
+                        </div>
+                        <svg class="blog-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section contact-section">
+            <div class="section-inner center">
+                <div class="section-header center-header">
+                    <span class="section-tag">04 / Contact</span>
+                    <h2>Initiate <span class="accent">Connection</span></h2>
+                    <p class="contact-sub">Available for freelance and full-time roles.</p>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="Tell me about your project..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">
+                        <span>Send Transmission</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L14 2L8 14L7 9L2 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <span class="logo-text">DEV<em>.PORTFOLIO</em></span>
+            <span class="footer-copy">© 2024 — Built with Three.js &amp; WebGL</span>
+        </footer>
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
